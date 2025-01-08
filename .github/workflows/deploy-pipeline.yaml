@@ -61,6 +61,8 @@ jobs:
           prerelease: false
       - name: Download artifact
         uses: actions/download-artifact@v4
+        with:
+          name: zipped-bundle
       - name: Upload release asset
         uses: actions/upload-release-asset@v1
         env:
@@ -70,5 +72,3 @@ jobs:
           asset_path: ./${{ github.sha }}.zip
           asset_name: source_code_with_libraries.zip
           asset_content_type: application/zip
-        with:
-          name: zipped-bundle
